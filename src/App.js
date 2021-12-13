@@ -52,7 +52,7 @@ function App() {
           <div className={classes.card}><Typography variant="h5" component="h2">Try saying: <br /><br />Go back</Typography></div>
         </div>
       ) : null}
-      <img src="https://alan.app/voice/images/previews/preview.jpg" className={classes.alanLogo} alt="logo" />
+      <img src="https://www.conversationdesigninstitute.com/assets/images/academy/POP/cover-card-EXT-Alan@2x.png" className={classes.alanLogo} alt="logo" />
     </div>
     <NewsCards articles={newsArticles} activeArticle={activeArticle} />
     {/* <Modal isOpen={isOpen} setIsOpen={setIsOpen} /> */}

@@ -45,22 +45,22 @@ function App() {
 
   return (
     <div>
-    <div className={classes.logoContainer}>
-      {newsArticles.length ? (
-        <div className={classes.infoContainer}>
-          <div className={classes.card}><Typography variant="h5" component="h2">Try saying: <br /><br />Open article number [4]</Typography></div>
-          <div className={classes.card}><Typography variant="h5" component="h2">Try saying: <br /><br />Go back</Typography></div>
-        </div>
-      ) : null}
-      <img src="https://www.conversationdesigninstitute.com/assets/images/academy/POP/cover-card-EXT-Alan@2x.png" className={classes.alanLogo} alt="logo" />
-    </div>
+      <div className={classes.logoContainer}>
+        {newsArticles.length ? (
+          <div className={classes.infoContainer}>
+            <div className={classes.card}><Typography variant="h5" component="h2">Try saying: <br /><br />Open article number [4]</Typography></div>
+            <div className={classes.card}><Typography variant="h5" component="h2">Try saying: <br /><br />Go back</Typography></div>
+          </div>
+        ) : null}
+        <img src="https://www.conversationdesigninstitute.com/assets/images/academy/POP/cover-card-EXT-Alan@2x.png" className={classes.alanLogo} alt="logo" />
+      </div>
     <NewsCards articles={newsArticles} activeArticle={activeArticle} />
     {/* <Modal isOpen={isOpen} setIsOpen={setIsOpen} /> */}
     {!newsArticles.length ? (
       <div className={classes.footer}>
         <Typography variant="body1" component="h2">
           Created by
-          <a className={classes.link} href="https://www.linkedin.com/in/chai-ian-phua-915452b9/"> Ian Phua</a> 
+          <a className={classes.link} href="https://github.com/ian038/ai-news-app" target='_blank' rel="noreferrer"> Ian Phua</a> 
         </Typography>
       </div>
     ) : null}

@@ -3,7 +3,7 @@ import { Typography } from '@material-ui/core'
 import wordsToNumbers from 'words-to-numbers'
 import alanBtn from '@alan-ai/alan-sdk-web'
 
-import { NewsCards, Modal } from './components'
+import { NewsCards } from './components'
 import useStyles from './styles'
 
 const alanKey = process.env.REACT_APP_ALAN_SDK_KEY
@@ -11,7 +11,6 @@ const alanKey = process.env.REACT_APP_ALAN_SDK_KEY
 function App() {
   const [activeArticle, setActiveArticle] = useState(0)
   const [newsArticles, setNewsArticles] = useState([])
-  const [isOpen, setIsOpen] = useState(false)
 
   const classes = useStyles()
 
@@ -20,23 +19,21 @@ function App() {
       key: alanKey,
       onCommand: ({ command, articles, number }) => {
         if (command === 'newHeadlines') {
-          setNewsArticles(articles);
-          setActiveArticle(-1);
-        } else if (command === 'instructions') {
-          setIsOpen(true);
+          setNewsArticles(articles)
+          setActiveArticle(-1)
         } else if (command === 'highlight') {
-          setActiveArticle((prevActiveArticle) => prevActiveArticle + 1);
+          setActiveArticle((prevActiveArticle) => prevActiveArticle + 1)
         } else if (command === 'open') {
-          const parsedNumber = number.length > 2 ? wordsToNumbers((number), { fuzzy: true }) : number;
-          const article = articles[parsedNumber - 1];
+          const parsedNumber = number.length > 2 ? wordsToNumbers((number), { fuzzy: true }) : number
+          const article = articles[parsedNumber - 1]
 
           if (parsedNumber > articles.length) {
-            alanBtn().playText('Please try that again...');
+            alanBtn().playText('Please try that again...')
           } else if (article) {
-            window.open(article.url, '_blank');
-            alanBtn().playText('Opening...');
+            window.open(article.url, '_blank')
+            alanBtn().playText('Opening...')
           } else {
-            alanBtn().playText('Please try that again...');
+            alanBtn().playText('Please try that again...')
           }
         }
       }
@@ -55,7 +52,6 @@ function App() {
         <img src="https://www.conversationdesigninstitute.com/assets/images/academy/POP/cover-card-EXT-Alan@2x.png" className={classes.alanLogo} alt="logo" />
       </div>
     <NewsCards articles={newsArticles} activeArticle={activeArticle} />
-    {/* <Modal isOpen={isOpen} setIsOpen={setIsOpen} /> */}
     {!newsArticles.length ? (
       <div className={classes.footer}>
         <Typography variant="body1" component="h2">
